@@ -49,7 +49,10 @@ public class Complex
     //funzione che stampa nel terminale il valore del numero complesso
     public void stampa()
     {
-        System.out.printf("%f %fi", this.Re, this.Imm);
+        if(this.getImm() >= 0)
+            System.out.printf("%.2f + %.2fi%n", this.getRe(), this.getImm());
+        else
+            System.out.printf("%.2f - %.2fi%n", this.getRe(), -this.getImm());
     }
 
     //funzione che calcola e ritorna il valore del modulo del

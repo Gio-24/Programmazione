@@ -1,3 +1,7 @@
+/*
+ * BUG
+ * - formattazione del testo
+ */
 import java.util.Scanner;
 
 public class ArrayComplex 
@@ -10,11 +14,11 @@ public class ArrayComplex
         Complex e = new Complex(); //numero complesso da cercare
         int userChoice;
 
-        Scanner userImput = new Scanner(System.in);//Scanner per input da terminale
+        Scanner userInput = new Scanner(System.in); //Scanner per input da terminale
 
         //prende in input da terminale un valore intero e lo assegna a DIM
         System.out.printf("Inserisci la dimensione del vettore: ");
-        DIM = userImput.nextInt(); //essendo final si può eseguire l'assegnazione una volta sola
+        DIM = userInput.nextInt(); //essendo final si può eseguire l'assegnazione una volta sola
 
         //creazione di un array di tipo complex di dimensine DIM
         array = new Complex[DIM];
@@ -25,62 +29,78 @@ public class ArrayComplex
         //riempimento del vettore
         InsertComplexFromTerminal(array, DIM);
 
-        //stampa del menu
-        PrintMenu();
-
-        //input utente per scegliere operazione
-        System.out.printf("Inserisci l'operazione che vuoi svolgere: ");
-        userChoice = userImput.nextInt();
-
-        switch(userChoice)
+        do
         {
-            case 1: //stampa vettore
-                PrintAll(array, DIM);
-            break;
+            //stampa del menu
+            PrintMenu();
 
-            case 2: //ordinamento
-                BubbleSort(array, DIM);
-            break;
+            //input utente per scegliere operazione
+            System.out.printf("Inserisci l'operazione che vuoi svolgere: ");
+            userChoice = userInput.nextInt();
 
-            case 3: //ricerca
-                System.out.printf("Inserisci il numero complesso che vuoi cercare%nInserisci la componente reale: ");
-                e.setRe(userImput.nextDouble());
-                System.out.printf("Inserisci la componente immaginaria: ");
-                e.setImm(userImput.nextDouble());
+            switch(userChoice)
+            {
+                case 1: //stampa vettore
+                    System.out.printf("%nVettore:%n");
+                    PrintAll(array, DIM);
+                break;
 
-                Search(array, DIM, e, pos);
+                case 2: //ordinamento
+                    BubbleSort(array, DIM);
 
-                System.out.printf("Il numero complesso ");
+                    //stampa del vettore ordinato
+                    System.out.printf("%nVettore ordinato:%n");
+                    PrintAll(array, DIM);
+                break;
 
-                if(e.getImm() >= 0)
-                    System.out.printf("%.2f + %.2fi%n", e.getRe(), e.getImm());
-                else
-                    System.out.printf("%.2f - %.2fi%n", e.getRe(), -e.getImm());
+                case 3: //ricerca
+                    //inserimento dell'elemento da cercare
+                    System.out.printf("%nInserisci il numero complesso che vuoi cercare%nInserisci la componente reale: ");
+                    e.setRe(userInput.nextDouble());
+                    System.out.printf("Inserisci la componente immaginaria: ");
+                    e.setImm(userInput.nextDouble());
 
-                System.out.printf("è stato trovato alle seguenti posizioni: ");
+                    if(Search(array, DIM, e, pos)) //stampa se viene trovato
+                    {
+                        System.out.printf("%nIl numero complesso ");
 
-                for(int i = 0; i < DIM; i++)
-                {
-                    if(pos[i] == 1)
-                    System.out.printf("%d", i + 1);
-                }
+                        //stampa del numero complesso
+                        e.stampa();
 
-            break;
+                        System.out.printf("è stato trovato alle seguenti posizioni:%n");
 
-            case 4: //stampa dei moduli
-                PrintAllModules(array, DIM);
-            break;
+                        for(int i = 0; i < DIM; i++)
+                        {
+                            if(pos[i] == 1)
+                            System.out.printf("%d%n", i + 1);
+                        }
 
-            case 5: //esci
+                    }
+                    else //stampa se NON viene trovato
+                    {
+                        System.out.printf("Il numero ");
+                        e.stampa();
+                        System.out.printf("non è stato trovato.%n%n");
+                    }
+                    
+                break;
 
-            break;
+                case 4: //stampa dei moduli
+                    System.out.printf("%nModuli:%n");
+                    PrintAllModules(array, DIM);
+                break;
 
-            default:
-                System.out.printf("Errore!");
-            break;
-        }
+                case 5: //esci
 
-        userImput.close();
+                break;
+
+                default:
+                    System.out.printf("Errore!");
+                break;
+            }
+        }while(userChoice != 5);
+
+        userInput.close(); //chiusura del System.in
     }
 
     //funzione che riempe il vettore con valori presi da terminale
@@ -100,21 +120,14 @@ public class ArrayComplex
 
             array[i] = new Complex(tmpRe, tmpImm);
         }
-
-        terminalInput.close();
     }
 
-    //funzione che stampa i valori degli elementi del vettore
+    //funzione che stampa i valori degli elementi del vettore utilizzando il metodo stampa della classe Complex
     public static void PrintAll(Complex[] array, int DIM)
     {
-        System.out.printf("Vettore:%n");
-
-        for (Complex num : array) 
+        for (Complex num : array) //for potenziato per scorrere il vettore
         {
-            if(num.getImm() >= 0)
-                System.out.printf("%.2f + %.2fi%n", num.getRe(), num.getImm());
-            else
-                System.out.printf("%.2f - %.2fi%n", num.getRe(), -num.getImm());
+            num.stampa();
         }
     }
 
@@ -126,16 +139,16 @@ public class ArrayComplex
         //ripete il ciclo di confronto ad ogni iterazione si ferma una posizione prima
         for(int i = 0; i < DIM - 1; i++)
         {
-            //ciclo che confronta l'elemento j-esimo con il successivo
+            //ciclo che confronta l'elemento j-esimo con il successivo per spostare l'elemento 
             for(int j = 0; j < DIM - i - 1; j++)
             {
                 //confronta il valore dei moduli
                 if(array[j].moduloComplex() > array[j + 1].moduloComplex())
                 {
-                    //se il valore scambio di variabile
+                    //se maggiore del successivo scambia
                     tmp = array[j];
                     array[j] = array[j + 1];
-                    array[j] = tmp;
+                    array[j + 1] = tmp;
                 }
             }
         }
@@ -149,9 +162,10 @@ public class ArrayComplex
     {
         boolean trovato = false;
 
-        for(int i = 0; i < DIM; i++) //ho usato un for dato che dobbiamo scorrere tutto il vettore per cercare tutte le occorrenze
+        //ho usato un ciclo for dato che dobbiamo scorrere tutto il vettore per cercare tutte le occorrenze
+        for(int i = 0; i < DIM; i++)
         {
-            if(array[i].equals(e))
+            if(array[i].getRe() == e.getRe() && array[i].getImm() == e.getImm())
             {
                 trovato = true;
                 pos[i] = 1;
@@ -166,16 +180,13 @@ public class ArrayComplex
     //funzione che stampa i valori dei moduli degli elementi del vettore
     public static void PrintAllModules(Complex[] array, int DIM)
     {
-        System.out.printf("Moduli:%n");
-
         for(Complex num : array)
             System.out.printf("%.2f%n", num.moduloComplex());
-
     }
 
     //funzione che stampa le operazioni disponibili
     public static void PrintMenu()
     {
-        System.out.printf("%n%nMenu%n1) Stanpa Vettore%n2) Ordinamento%n3) Ricerca%n4) Stampa Moduli%n5) Esci%n%n");
+        System.out.printf("%n%nMenu%n1) Stampa Vettore%n2) Ordinamento%n3) Ricerca%n4) Stampa Moduli%n5) Esci%n%n");
     }
 }
