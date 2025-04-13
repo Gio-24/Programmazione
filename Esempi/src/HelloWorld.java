@@ -1,4 +1,6 @@
 /*
+riferimenti lucidi: unità 1
+
 il comando class permette di creare una classe
  - HelloWorld rappresenta il nome della classe (si utilizza la convenzione camel case)
  - public è un modificatore di visibilità in questo caso indica che la classe è visibile
