@@ -26,3 +26,11 @@ public class HelloWorld
         System.out.println("Hello World!"); 
     }
 }
+/*
+Per eseguire un programma dal prompt dei comandi bisogna fare:
+ - utilizzare i comandi dir ed cd per spostarsi nella cartella dove si trova l'eseguibile (.java)
+ - utilizzare il comando javac per compilare il file sorgente in bytecode (.class)
+   N.B. l'estensione del file sorgente può essere omesso
+ - utilizzare il camndo java per invocare la JVM ed eseguire il bytecode
+   N.B. non va indicata l'estensione (.class) 
+*/
