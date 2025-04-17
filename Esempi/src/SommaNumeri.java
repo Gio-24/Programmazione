@@ -54,6 +54,12 @@ public class SommaNumeri // classe somma numeri
         System.out.printf("Inserisci il secondo numero: ");
         int numero2 = scanner.nextInt();
 
+        /*
+        chiusura dello Scanner scanner
+        N.B. questaa istruzione interrompe uno scanner specifico ma termina l'input stream da tastiera quindi conviene eseguire il comando solo alla fine del programma e non nei metodi
+        */
+        scanner.close();
+
         return numero1 + numero2;
     }
 }
