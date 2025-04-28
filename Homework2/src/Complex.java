@@ -11,28 +11,28 @@ public class Complex
         this.Imm = 0.0;
     }
 
-    public Complex(double realValue, double immaginaryValue)
+    public Complex(double Re, double Imm)
     {
-        this.Re = realValue;
-        this.Imm = immaginaryValue;
+        this.Re = Re;
+        this.Imm = Imm;
     }
 
     //copy builder
-    public Complex(Complex number)
+    public Complex(Complex C)
     {
-        this.Re = number.Re;
-        this.Imm = number.Imm;
+        this.Re = C.Re;
+        this.Imm = C.Imm;
     }
 
     //setter methods
-    public void setRe(double realValue)
+    public void setRe(double Re)
     {
-        this.Re = realValue;
+        this.Re = Re;
     }
 
-    public void setImm(double immaginaryValue)
+    public void setImm(double Imm)
     {
-        this.Imm = immaginaryValue;
+        this.Imm = Imm;
     }
 
     //getter methods
