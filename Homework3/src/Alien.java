@@ -1,15 +1,19 @@
 public class Alien extends Personaggio
 {
-    //variabile globale a livello di classe
-    private static int AlienCount = 0;
+    private static int AlienCount = 0; // conta il numero di oggetti istanziati di questa classe (static -> globale a livello della classe)
 
+    //costruttore
     public Alien(int x, int y)
     {
-        //invoca il costruttore della superclasse Personaggio
-        super(x, y);
-        
-        //dopo la creazione del nuovo zombie incrementa il valore di ZombieCount
-        AlienCount++;
+        super(x, y); // invoca il costruttore della superclasse Personaggio
+        AlienCount++; // incrementa il class counter
+    }
+
+    @Override
+    protected void die()
+    {        
+        super.die();//utilizza il metodo die della classe super per impostare l'attributo vivo a false
+        AlienCount--;// decrementa AlienCount
     }
 
     //metodo get di AlienCount
@@ -19,23 +23,48 @@ public class Alien extends Personaggio
     }
 
     /*
-    metodo move
+    movimento Alien -> x + 1, y + 1 (si muovo in diagonale, dall'alto verso il basso)
+
+    controlli da effettuare prima di muovere
+     - il personaggio è ancora vivo?
+     - la posizione in cui vuole muoversi è valida?
+     - la posizione in cui vuole muoversi è già occupata da un altra pedina o è vuota?
+     - è una pedina avversaria?
     */
     @Override
     public void move(Campo campo)
     {
-        int newX = this.getX() + 1;
-        int newY = this.getY() + 1;
-
-        if(this.vivo && campo.isValidPosition(newX, newY))
+        if(this.vivo) // controlla se il personaggio è vivo
         {
-            Personaggio occupante = campo.whois(newX, newY);
+            // nuove coordinate
+            int newX = this.getX() + 1;
+            int newY = this.getY() + 1;
 
-            if(occupante == null || this.getClass() != occupante.getClass()) //verifica se la 
+            if(campo.isValidPosition(newX, newY)) // controlla se le nuove coordinate sono valide
             {
-                campo.removePersonaggio(this.getX(), this.getY()); //rimuovi il personaggio alla posizione attuale
+                Personaggio p = campo.whois(newX, newY); // ritorna il riferimento all'occupante della posizione in cui si vuole muovere
 
-                campo.placePersonaggio(newX, newY, this); //inserisci il personaggio alla nuova posizione
+                if(p != null && this.getClass() != p.getClass()) // controlla se c'è un personaggio e se è un avversario
+                {
+                    ((Zombie)p).die(); // cast da Personaggio a Zombie per richiamare il metodo die sovrascritto
+
+                    campo.removePersonaggio(this.getX(), this.getY()); // rimuove il personaggio dalla posizione corrente
+                    campo.placePersonaggio(newX, newY, this); // posizione il personaggio nella nuova posizione 
+
+                    // aggiorna cordinate
+                    this.setX(newX);
+                    this.setY(newY);
+                }
+                else if(p == null) // se non c'è un personaggio può spostare
+                {
+                    campo.removePersonaggio(this.getX(), this.getY()); // rimuove il personaggio dalla posizione corrente
+                    campo.placePersonaggio(newX, newY, this); // posizione il personaggio nella nuova posizione
+
+                    // aggiorna cordinate
+                    this.setX(newX);
+                    this.setY(newY);
+                }
+
             }
         }
     }

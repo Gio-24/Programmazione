@@ -1,12 +1,14 @@
 public class Campo 
 {
-    //relazione di composizione con la classe personaggio
-    private Personaggio[][] grid;
+    /* 
+    realizza la relazione di composizione tra Campo e Personaggio
+    */
+    private Personaggio[][] grid; // matrice di tipo Personaggio
 
     //costruttore
     public Campo(int size)
     {
-        grid = new Personaggio[size][size];
+        grid = new Personaggio[size][size]; // matrice quadrata
     }
 
     //metodo get di grid
@@ -16,30 +18,18 @@ public class Campo
     }
 
     /*
-    metodo che posizione un Personaggio nella posizione (x, y). Controlla prima se 
-    nella posione è presente una pedina avversaria e successivamente posiziona il personaggio
-    e ne aggiorna le cordinate
+    assegna all'elemento, specificato dalla posizione (x, y) un riferimento a personaggio. effettua un controllo
+    per verificare che la posizione indicata sia valida, tramite il metodo isValidPosition
     */
     public void placePersonaggio(int x, int y, Personaggio personaggio)
     {
-        //controlla sulla posizione (x, y)
-        Personaggio occupante = grid[x][y];
-
-        if(!(occupante.getClass() == personaggio.getClass())) //se le classi sono diverse 
-        {
-            occupante.die(); //viene catturata
-
-            //assegna il riferimento alla posizione (x, y)
+        if(isValidPosition(x, y))
             grid[x][y] = personaggio;
-        
-            //aggiorna le coordinate del personaggio
-            personaggio.setX(x);
-            personaggio.setY(y);
-        }
     }
 
     /*
-    metodo che rimuove il riferimento di un personaggio dalla posizione (x, y)
+    assegna all'elemento, specificato dalla posizione (x, y), null. effettua un controlloper verificare che la 
+    posizione indicata sia valida, tramite il metodo isValidPosition
     */
     public void removePersonaggio(int x, int y)
     {
@@ -48,28 +38,23 @@ public class Campo
     }
 
     /*
-    metodo che controlla se la posizione è interna al campo
+    controlla che la posizione (x, y) sia compresa tra le righe e le colonne 
     */
     public boolean isValidPosition(int x, int y)
     {
-        return (x >= 0 && x < grid.length) && (y >= 0 && y < grid.length); 
-        // dato che è una matrice quadrata possiamo usare grid.length entrambe le volte
+        return (x >= 0 && x < grid.length) && (y >= 0 && y < grid.length); // dato che è una matrice quadrata possiamo usare grid.length entrambe le volte
     }
 
     /*
-    NOTE DI SVILUPPO
-    la condizione di gameover si verifica quando
-     - tutte le pedine di una parte o dell'altra muoiono (vittoria)
-       quindi effetua il controllo sull'attributo counter delle classi personaggio
-     - termina la sequenza di mosse (patta)
+    verifica se uno degli eserciti ha terminato le pedine
     */
     public boolean gameover()
     {
-        return Zombie.get_ZombieCount() > 0 && Alien.get_AlienCount() > 0;
         /*
         essendo la sequenza di mosse prestabilita non è necessario effettuare il controllo sul numero di mosse ma solo
         sul numero di pedine ancora in gioco per ogni esercito 
         */
+        return !(Zombie.get_ZombieCount() > 0 && Alien.get_AlienCount() > 0); 
     }
 
     /*
