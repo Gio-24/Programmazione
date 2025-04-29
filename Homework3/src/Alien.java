@@ -23,7 +23,7 @@ public class Alien extends Personaggio
     }
 
     /*
-    movimento Alien -> x + 1, y + 1 (si muovo in diagonale, dall'alto verso il basso)
+    movimento Alien -> x + 1, y + 1 (si muovo in diagonale, dall'alto verso il basso e da sinistra verso destra)
 
     controlli da effettuare prima di muovere
      - il personaggio è ancora vivo?
