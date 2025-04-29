@@ -15,7 +15,7 @@ public class Personaggio
     //metodi get e set di x
     public int getX() 
     {
-        return x;
+        return this.x;
     }
 
     public void setX(int x) 
