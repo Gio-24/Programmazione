@@ -50,8 +50,9 @@ public class ZombiesVSAliens
 
                 if(tmp.vivo) // controlla se la pedina è ancora viva
                 {
-                    System.out.println("muove l'esercito " + army + " dalla posizione (" + tmp.getX() +", "+ tmp.getY() +")");
+                    System.out.print("muove l'esercito " + army + " dalla posizione (" + tmp.getX() +", "+ tmp.getY() +")");
                     tmp.move(campo);
+                    System.out.println(" alla posizione (" + tmp.getX() + ", " + tmp.getY() + ")");
                 }
                 else
                     System.out.println("l'esercito " + army + " salta il turno... la pedina è stata mangiata");
