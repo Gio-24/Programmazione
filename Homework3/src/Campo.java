@@ -27,10 +27,7 @@ public class Campo
 
         if(!(occupante.getClass() == personaggio.getClass())) //se le classi sono diverse 
         {
-            if(occupante != null) // se nella casella è presente una pedina 
-            {
-                occupante.die(); //viene catturata
-            }
+            occupante.die(); //viene catturata
 
             //assegna il riferimento alla posizione (x, y)
             grid[x][y] = personaggio;
@@ -46,7 +43,8 @@ public class Campo
     */
     public void removePersonaggio(int x, int y)
     {
-        grid[x][y] = null;
+        if(isValidPosition(x, y))
+            grid[x][y] = null;
     }
 
     /*
@@ -79,6 +77,9 @@ public class Campo
     */
     public Personaggio whois(int x, int y)
     {
-        return grid[x][y];
+        if(isValidPosition(x, y))
+            return grid[x][y];
+        else
+            return null;
     }
 }

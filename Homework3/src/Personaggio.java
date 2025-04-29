@@ -35,7 +35,7 @@ public class Personaggio
     }
 
     /*
-    
+    da implementare nelle sottoclassi
     */
     public void move(Campo campo)
     {

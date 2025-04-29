@@ -42,9 +42,8 @@ public class Zombie extends Personaggio
 
             if(occupante == null || occupante.getClass() != this.getClass())
             {
-                campo.removePersonaggio(this.getX(), this.getY());
-
-                campo.placePersonaggio(newX, newY, this);                
+                campo.placePersonaggio(newX, newY, this);
+                campo.removePersonaggio(this.getX(), this.getY());              
             }
         }
     }

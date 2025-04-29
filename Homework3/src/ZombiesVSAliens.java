@@ -29,7 +29,14 @@ public class ZombiesVSAliens
         sequenzaMosse[7] = alien1;
         
         // Esecuzione della simulazione
-        System.out.println("=== INIZIO SIMULAZIONE ===");
+        System.out.println("---=== INIZIO SIMULAZIONE ===---");
+
+        System.out.println("Sequenza di mosse: ");
+
+        for(Personaggio mossa : sequenzaMosse)
+        {
+            System.out.print(mossa.getClass().getSimpleName() + "\t");
+        }
 
         printBoardState(campo);
         
@@ -37,7 +44,7 @@ public class ZombiesVSAliens
         {
             Personaggio p = sequenzaMosse[i];
 
-            System.out.println("\nMossa " + (i+1) + ": " + p.getClass().getSimpleName() + " a (" + p.getX() + "," + p.getY() + ")");
+            System.out.println("\nMossa " + (i + 1) + ": " + p.getClass().getSimpleName() + " a (" + p.getX() + "," + p.getY() + ")");
             
             p.move(campo);
 
@@ -49,14 +56,14 @@ public class ZombiesVSAliens
         
         // Se arriviamo qui, la sequenza è terminata senza vincitori
         System.out.println("\n---=== FINE SIMULAZIONE ===---");
-        System.out.println("Alien rimasti: " + Alien.getAlienCount());
-        System.out.println("Zombie rimasti: " + Zombie.getZombieCount());
+        System.out.println("Alien rimasti: " + Alien.get_AlienCount());
+        System.out.println("Zombie rimasti: " + Zombie.get_ZombieCount());
         
-        if (Alien.getAlienCount() == Zombie.getZombieCount()) 
+        if (Alien.get_AlienCount() == Zombie.get_ZombieCount()) 
         {
             System.out.println("PAREGGIO!");
         } 
-        else if (Alien.getAlienCount() > Zombie.getZombieCount()) 
+        else if (Alien.get_AlienCount() > Zombie.get_ZombieCount()) 
         {
             System.out.println("VITTORIA DEGLI ALIEN!");
         } 
