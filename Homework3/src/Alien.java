@@ -11,7 +11,7 @@ public class Alien extends Personaggio
 
     @Override
     protected void die()
-    {        
+    {
         super.die();//utilizza il metodo die della classe super per impostare l'attributo vivo a false
         AlienCount--;// decrementa AlienCount
     }

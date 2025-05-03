@@ -1,4 +1,4 @@
-public class Personaggio 
+public abstract class Personaggio 
 {
     private int x;
     private int y;
@@ -37,10 +37,7 @@ public class Personaggio
     /*
     da implementare nelle sottoclassi
     */
-    public void move(Campo campo)
-    {
-        
-    }
+    public abstract void move(Campo campo);
     
     /*
     metodo che imposta a false l'attributo vivo del personaggio
