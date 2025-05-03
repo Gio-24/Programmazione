@@ -1,0 +1,98 @@
+Simulazione in caso di vittoria degli Zombies prima del termine della sequenza 
+di mosse
+
+---=== INIZIO SIMULAZIONE ===---
+
+Sequenza mosse: 
+alien1, zombie1, alien1, alien2, zombie2, zombie1, alien1, alien1
+
+Stato iniziale del campo:
+
+ A  Z  -  -  -
+ A  -  -  -  -
+ -  Z  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+
+
+---1° Turno---
+muove l'esercito Alien dalla posizione (0, 0) alla posizione (1, 1)
+
+ -  Z  -  -  -
+ A  A  -  -  -
+ -  Z  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---2° Turno---
+muove l'esercito Zombie dalla posizione (0, 1) alla posizione (1, 1)
+
+ -  -  -  -  -
+ A  Z  -  -  -
+ -  Z  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---3° Turno---
+l'esercito Alien salta il turno... la pedina è stata mangiata
+
+ -  -  -  -  -
+ A  Z  -  -  -
+ -  Z  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---4° Turno---
+muove l'esercito Alien dalla posizione (1, 0) alla posizione (2, 1)
+
+ -  -  -  -  -
+ -  Z  -  -  -
+ -  A  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 1
+
+
+---5° Turno---
+l'esercito Zombie salta il turno... la pedina è stata mangiata
+
+ -  -  -  -  -
+ -  Z  -  -  -
+ -  A  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 1
+
+
+---6° Turno---
+muove l'esercito Zombie dalla posizione (1, 1) alla posizione (2, 1)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  Z  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 0
+Zombie rimasti: 1
+
+---=== FINE SIMULAZIONE ===---
+
+Esito simulazione: ha vinto l'esercito degli Zombie

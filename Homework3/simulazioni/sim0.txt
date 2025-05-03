@@ -1,0 +1,123 @@
+Simualzione in casa in cui le pedine siano bloccate e non si possano muovere
+
+---=== INIZIO SIMULAZIONE ===---
+
+Sequenza mosse:
+alien1, zombie1, alien1, alien2, zombie2, zombie1, alien1, alien1
+
+Stato iniziale del campo:
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+
+
+---1° Turno---
+l'esercito Alien salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---2° Turno---
+l'esercito Zombie salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  - 
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---3° Turno---
+l'esercito Alien salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---4° Turno---
+l'esercito Alien salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---5° Turno---
+l'esercito Zombie salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---6° Turno---
+l'esercito Zombie salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---7° Turno---
+l'esercito Alien salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---8° Turno---
+l'esercito Alien salta il turno... la pedina è bloccata e non può muoversi
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ Z  Z  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+---=== FINE SIMULAZIONE ===---
+
+Esito simulazione: I due eserciti hanno pareggiato
