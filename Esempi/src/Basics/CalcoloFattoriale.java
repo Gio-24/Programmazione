@@ -1,3 +1,4 @@
+package Basics;
 /*
 riferimenti lucidi: unità 6
 */
@@ -14,7 +15,8 @@ public class CalcoloFattoriale
         System.out.print("Inserisci un numero intero positivo: ");
         n = input.nextInt();
 
-        if (n < 0) System.out.print("il fattoriale non e' definito per numeri interi negativi!");
+        if (n < 0) 
+            System.out.print("il fattoriale non e' definito per numeri interi negativi!");
         else 
         {
             ris = Fattoriale(n); // passaggio per copia della variabile num
@@ -28,7 +30,8 @@ public class CalcoloFattoriale
     {
         double fatt = 1;
 
-        if (num == 0 || num == 1) fatt = 1;
+        if (num == 0 || num == 1) 
+            fatt = 1;
         else 
         {
             for (int i = 1; i <= num; i++)

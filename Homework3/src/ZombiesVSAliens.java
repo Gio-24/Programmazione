@@ -78,7 +78,7 @@ public class ZombiesVSAliens
         System.out.print("\n---=== FINE SIMULAZIONE ===---\n\nEsito simulazione: ");
 
         // controlla il numero di pedine ancora in vita per determinare l'esito della partita
-        if(Alien.get_AlienCount() == Zombie.get_ZombieCount()) 
+        if(Alien.get_AlienCount() == Zombie.get_ZombieCount())  
         {
             System.out.println("I due eserciti hanno pareggiato");
         } 
