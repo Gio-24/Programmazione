@@ -18,8 +18,10 @@ public class ZombiesVSAliens
         campo.placePersonaggio(zombie1.getX(), zombie1.getY(), zombie1);
         campo.placePersonaggio(zombie2.getX(), zombie2.getY(), zombie2);
         
-        // sequenza di mosse specificata nella traccia
+        // array contenete la sequenza di mosse
         Personaggio[] sequenzaMosse = new Personaggio[8];
+
+        // sequenza di mosse
         sequenzaMosse[0] = alien1;
         sequenzaMosse[1] = zombie1;
         sequenzaMosse[2] = alien1;
@@ -50,9 +52,15 @@ public class ZombiesVSAliens
 
                 if(tmp.vivo) // controlla se la pedina è ancora viva
                 {
-                    System.out.print("muove l'esercito " + army + " dalla posizione (" + tmp.getX() +", "+ tmp.getY() +")");
-                    tmp.move(campo);
-                    System.out.println(" alla posizione (" + tmp.getX() + ", " + tmp.getY() + ")");
+                    // controlla se la prossima mossa è valida
+                    if((tmp instanceof Alien && campo.isValidPosition(tmp.getX() + 1, tmp.getY() + 1)) || (tmp instanceof Zombie && campo.isValidPosition(tmp.getX() + 1, tmp.getY())))
+                    {
+                        System.out.print("muove l'esercito " + army + " dalla posizione (" + tmp.getX() +", "+ tmp.getY() +")");
+                        tmp.move(campo);
+                        System.out.println(" alla posizione (" + tmp.getX() + ", " + tmp.getY() + ")");
+                    }
+                    else
+                        System.out.println("l'esercito " + army + " salta il turno... la pedina è bloccata e non può muoversi");
                 }
                 else
                     System.out.println("l'esercito " + army + " salta il turno... la pedina è stata mangiata");
@@ -66,18 +74,19 @@ public class ZombiesVSAliens
             
         }
         
-        // Se arriviamo qui, la sequenza è terminata senza vincitori
+        // fine simulazione
         System.out.print("\n---=== FINE SIMULAZIONE ===---\n\nEsito simulazione: ");
 
-        if (Alien.get_AlienCount() == Zombie.get_ZombieCount()) 
+        // controlla il numero di pedine ancora in vita per determinare l'esito della partita
+        if(Alien.get_AlienCount() == Zombie.get_ZombieCount())  
         {
             System.out.println("I due eserciti hanno pareggiato");
         } 
-        else if (Alien.get_AlienCount() > Zombie.get_ZombieCount()) 
+        else if(Alien.get_AlienCount() > Zombie.get_ZombieCount()) 
         {
             System.out.println("ha vinto l'esercito degli Alieni");
         } 
-        else 
+        else
         {
             System.out.println("ha vinto l'esercito degli Zombie");
         }
@@ -89,19 +98,21 @@ public class ZombiesVSAliens
 
         Personaggio[][] grid = campo.getGrid();
 
+        // for potenziato per scorrere le righe
         for(Personaggio[] row : grid) 
         {
+            // for potenziato per scorrere le colonne di ogni riga
             for(Personaggio col : row) 
             {
                 if (col == null)
                 {
                     System.out.print(" - ");
                 }
-                else if (col instanceof Alien) 
+                else if (col instanceof Alien) // controlla se è un oggetto della classe Alien 
                 {
                     System.out.print(" A ");
                 }
-                else if (col instanceof Zombie) 
+                else if (col instanceof Zombie) // controlla se è un oggetto della classe Zombie
                 {
                     System.out.print(" Z ");
                 }

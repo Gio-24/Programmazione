@@ -1,0 +1,123 @@
+Simulazione in caso di vittoria degli Zombies per numero di pedine
+
+---=== INIZIO SIMULAZIONE ===---
+
+Sequenza mosse:
+alien1, zombie1, alien1, alien2, zombie2, zombie1, alien1, alien1
+
+Stato iniziale del campo:
+
+ A  -  -  -  Z
+ Z  -  -  A  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+
+
+---1° Turno---
+muove l'esercito Zombie dalla posizione (0, 4) alla posizione (1, 4)
+
+ A  -  -  -  -
+ Z  -  -  A  Z
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---2° Turno---
+muove l'esercito Alien dalla posizione (1, 3) alla posizione (2, 4)
+
+ A  -  -  -  -
+ Z  -  -  -  Z
+ -  -  -  -  A
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---3° Turno---
+muove l'esercito Zombie dalla posizione (1, 4) alla posizione (2, 4)
+
+ A  -  -  -  -
+ Z  -  -  -  -
+ -  -  -  -  Z 
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---4° Turno---
+muove l'esercito Alien dalla posizione (0, 0) alla posizione (1, 1)
+
+ -  -  -  -  -
+ Z  A  -  -  -
+ -  -  -  -  Z
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---5° Turno---
+muove l'esercito Zombie dalla posizione (1, 0) alla posizione (2, 0)
+
+ -  -  -  -  -
+ -  A  -  -  -
+ Z  -  -  -  Z
+ -  -  -  -  -
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---6° Turno---
+muove l'esercito Zombie dalla posizione (2, 4) alla posizione (3, 4)
+
+ -  -  -  -  -
+ -  A  -  -  -
+ Z  -  -  -  -
+ -  -  -  -  Z
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---7° Turno---
+muove l'esercito Alien dalla posizione (1, 1) alla posizione (2, 2)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ Z  -  A  -  -
+ -  -  -  -  Z
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+
+---8° Turno---
+muove l'esercito Zombie dalla posizione (2, 0) alla posizione (3, 0)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  A  -  -
+ Z  -  -  -  Z
+ -  -  -  -  -
+
+Alien rimasti: 1
+Zombie rimasti: 2
+
+---=== FINE SIMULAZIONE ===---
+
+Esito simulazione: ha vinto l'esercito degli Zombie

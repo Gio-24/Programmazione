@@ -1,0 +1,123 @@
+Simulaizone in caso di vittoria degli Aliens
+
+---=== INIZIO SIMULAZIONE ===---
+
+Sequenza mosse:
+zombie1, alien1, zombie2, alien2, zombie1, alien2, alien1, alien2
+
+Stato iniziale del campo:
+
+ -  -  -  -  -
+ -  A  A  -  Z
+ -  -  -  -  -
+ -  -  -  -  Z
+ -  -  -  -  -
+
+
+
+---1° Turno---
+muove l'esercito Zombie dalla posizione (1, 4) alla posizione (2, 4)
+
+ -  -  -  -  -
+ -  A  A  -  -
+ -  -  -  -  Z
+ -  -  -  -  Z
+ -  -  -  -  -
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---2° Turno---
+muove l'esercito Alien dalla posizione (1, 2) alla posizione (2, 3)
+
+ -  -  -  -  -
+ -  A  -  -  -
+ -  -  -  A  Z
+ -  -  -  -  Z
+ -  -  -  -  -
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---3° Turno---
+muove l'esercito Zombie dalla posizione (3, 4) alla posizione (4, 4)
+
+ -  -  -  -  - 
+ -  A  -  -  -
+ -  -  -  A  Z
+ -  -  -  -  -
+ -  -  -  -  Z
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---4° Turno---
+muove l'esercito Alien dalla posizione (1, 1) alla posizione (2, 2)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  A  A  Z
+ -  -  -  -  -
+ -  -  -  -  Z
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---5° Turno---
+muove l'esercito Zombie dalla posizione (2, 4) alla posizione (3, 4)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  A  A  -
+ -  -  -  -  Z
+ -  -  -  -  Z
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---6° Turno---
+muove l'esercito Alien dalla posizione (2, 2) alla posizione (3, 3)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  A  -
+ -  -  -  A  Z
+ -  -  -  -  Z
+
+Alien rimasti: 2
+Zombie rimasti: 2
+
+
+---7° Turno---
+muove l'esercito Alien dalla posizione (2, 3) alla posizione (3, 4)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  A  A
+ -  -  -  -  Z
+
+Alien rimasti: 2
+Zombie rimasti: 1
+
+
+---8° Turno---
+muove l'esercito Alien dalla posizione (3, 3) alla posizione (4, 4)
+
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  -
+ -  -  -  -  A
+ -  -  -  -  A
+
+Alien rimasti: 2
+Zombie rimasti: 0
+
+---=== FINE SIMULAZIONE ===---
+
+Esito simulazione: ha vinto l'esercito degli Alieni
