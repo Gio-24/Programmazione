@@ -1,6 +1,6 @@
 package Message;
 
-public class Contatto
+public class Contatto implements Comparable<Contatto>
 {
   private String nome;
   private String numero;
@@ -24,6 +24,13 @@ public class Contatto
     }
     Contatto other = (Contatto) obj;
     return this.nome.equals(other.nome) && this.numero.equals(other.numero);
+  }
+
+  // confronto eseguito solo sul numero di telefono
+  @Override
+  public int compareTo(Contatto other) 
+  {
+    return this.numero.compareTo(other.numero);
   }
 
   @Override

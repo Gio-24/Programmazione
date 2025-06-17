@@ -3,7 +3,7 @@ package Message;
 import java.util.NoSuchElementException;
 
 // gestita con politiche FIFO
-public class Lista 
+public class Lista
 {
   class Nodo
   {
@@ -68,4 +68,23 @@ public class Lista
     testa = testa.next;
     return tmp.data;
   }
+
+  public void ricercaTesti(String daCercare) 
+  {
+    Nodo current = testa;
+    while(current != null) 
+    {
+      if
+      Messaggio msg = current.data.getMessage().getContenuto();
+      if (msg instanceof Testo) 
+      {
+        Testo testo = (Testo) msg;
+        if (testo.getContenuto().contains(daCercare))
+        {
+          System.out.println(testo.getContenuto());
+        }
+      }
+      current = current.getNext();
+    }
+}
 }
