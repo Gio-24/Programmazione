@@ -14,6 +14,14 @@ public class Testo extends Messaggio
   {
     return contenuto;
   }
+  
+  @Override
+  public Object clone() throws CloneNotSupportedException 
+  {
+    Contatto contattoCopy = super.clonaMittente();
+    Orario orarioCopy = super.clonaIstante();
+    return new Testo(contattoCopy, orarioCopy, contenuto);  
+  }
 
   @Override
   public String toString() 

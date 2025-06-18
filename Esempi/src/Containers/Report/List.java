@@ -120,6 +120,9 @@ public class List
   // carica da un ArrayList ad una List
   public List(ArrayList list)
   {
-    for(int i = list.size(); i > )
+    // per una rimozione efficiente degli elementi deve avvenire in coda alla lista
+    for(int i = 0; i < list.size(); i++)
+    {
+    }
   }
 }

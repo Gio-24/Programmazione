@@ -1,6 +1,6 @@
 package Message;
 
-public class Messaggio implements Cloneable, Comparable<Messaggio>
+public abstract class Messaggio implements Cloneable, Comparable<Messaggio>
 {
   private Contatto mittente;
   private Orario istante;
@@ -9,6 +9,14 @@ public class Messaggio implements Cloneable, Comparable<Messaggio>
   {
     this.mittente = contatto;
     this.istante = orario;
+  }
+
+  public Orario getIstante() {
+    return istante;
+  }
+
+  public Contatto getMittente() {
+    return mittente;
   }
 
   @Override
@@ -40,12 +48,19 @@ public class Messaggio implements Cloneable, Comparable<Messaggio>
     return this.istante.compareTo(other.istante);
   }
 
-  // shallow copy
-  @Override
-  protected Object clone() throws CloneNotSupportedException
+  // Metodi ausiliari per clonare i componenti, rispettando il contenimento
+  protected Orario clonaIstante() throws CloneNotSupportedException 
   {
-    return (Messaggio) super.clone();
+    return (Orario) istante.clone();
   }
+
+  protected Contatto clonaMittente() throws CloneNotSupportedException 
+  {
+    return (Contatto) mittente.clone();
+  }
+
+  @Override
+  public abstract Object clone() throws CloneNotSupportedException;
 
   @Override
   public String toString()

@@ -52,10 +52,14 @@ public class Orario implements Comparable<Orario>
   }
 
   @Override
+  protected Object clone() throws CloneNotSupportedException 
+  {
+    return super.clone();
+  }
+
+  @Override
   public String toString()
   {
     return "| Orario: " + ora + ":" + min + " |";
   }
-
-  
 }

@@ -34,6 +34,12 @@ public class Contatto implements Comparable<Contatto>
   }
 
   @Override
+  protected Object clone() throws CloneNotSupportedException 
+  {
+    return super.clone();
+  }
+
+  @Override
   public String toString()
   {
     return "| Nome: " + nome + " || Numero: " + numero + " |";
