@@ -23,9 +23,9 @@ public class Gruppo
     lista.ricercaTesto("Napoli");
     try
     {
-      ArrayList<Contatto> contatti = lista.contattiMaxVocali();
+      ArrayList<Vocale> vocali = lista.contattiMaxVocali();
       System.out.print("Elementi della lista: ");
-      for(Contatto elem : contatti)
+      for(Vocale elem : vocali)
       {
         System.out.println(elem.toString());
       }
