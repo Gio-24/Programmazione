@@ -134,7 +134,7 @@ public class Parcheggio <T extends Veicolo> implements Serializable
       {
         counter++; // passa al prossimo elemento
       }
-      if(counter > 0 && counter <= veicoliParcheggiati.length)
+      if(counter >= 0 && counter <= veicoliParcheggiati.length)
       {
         veicoliParcheggiati[counter] = v;
       }

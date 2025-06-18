@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 public class Utente implements Serializable
 {
-  public static void main(String[] args) 
+  public static void main(String[] args) throws IOException 
   {
     //----------------------------
     //---===|Test Motociclo|===---
@@ -113,13 +113,20 @@ public class Utente implements Serializable
     p.uscita(a2, 6);
     System.out.println("Stato interno dopo una rimozione");
     p.stampaStatoInterno();
+    //-----------------------
+    //---===|Test File|===---
+    //-----------------------
+    Utente.salvaSuFileBinario(p);
+    Parcheggio carica = caricaDaFileBinario("src/Files/data.dat");
+    carica.stampaStatoInterno();
+
   }
 
   // salva lo stato del parcheggio in file binario
   // N.B. ogni salvataggio sovrascrive il file
-  public void salvaSuFileBinario(Parcheggio p) throws IOException
+  public static void salvaSuFileBinario(Parcheggio p) throws IOException
   {
-    try(ObjectOutputStream objOutStrm = new ObjectOutputStream(new FileOutputStream("Files/data.dat")))
+    try(ObjectOutputStream objOutStrm = new ObjectOutputStream(new FileOutputStream("src/Files/data.dat")))
     {
       objOutStrm.writeObject(p);
     }
@@ -130,7 +137,7 @@ public class Utente implements Serializable
   }
 
   // carica l'oggetto da un file binario
-  public Parcheggio caricaDaFileBinario(String nomeFile)
+  public static Parcheggio caricaDaFileBinario(String nomeFile)
   {
     try(ObjectInputStream objInStrm = new ObjectInputStream(new FileInputStream(nomeFile)))
     {
