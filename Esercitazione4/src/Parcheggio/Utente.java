@@ -30,7 +30,7 @@ public class Utente implements Serializable
     //---===|Test Coda|===---
     //-----------------------
     // crea coda vuota
-    Coda prova = new Coda<Veicolo>();
+    Coda<Veicolo> prova = new Coda<>();
     // predicati
     System.out.println("Test predicati coda dopo la creazione(vuota)");
     if(prova.isEmpty())
@@ -85,7 +85,7 @@ public class Utente implements Serializable
     //---===|Test Parcheggio|===---
     //-----------------------------
     // Test costruttore
-    Parcheggio p = new Parcheggio<Veicolo>(2,2);
+    Parcheggio<Veicolo> p = new Parcheggio<>(2,2);
     // test accetta tramite inserisci in coda
     inserisciInCoda(p, a1);
     try
@@ -117,14 +117,14 @@ public class Utente implements Serializable
     //---===|Test File|===---
     //-----------------------
     Utente.salvaSuFileBinario(p);
-    Parcheggio carica = caricaDaFileBinario("src/Files/data.dat");
+    Parcheggio<Veicolo> carica = caricaDaFileBinario("src/Files/data.dat");
     carica.stampaStatoInterno();
 
   }
 
   // salva lo stato del parcheggio in file binario
   // N.B. ogni salvataggio sovrascrive il file
-  public static void salvaSuFileBinario(Parcheggio p) throws IOException
+  public static void salvaSuFileBinario(Parcheggio<Veicolo> p) throws IOException
   {
     try(ObjectOutputStream objOutStrm = new ObjectOutputStream(new FileOutputStream("src/Files/data.dat")))
     {
@@ -137,11 +137,11 @@ public class Utente implements Serializable
   }
 
   // carica l'oggetto da un file binario
-  public static Parcheggio caricaDaFileBinario(String nomeFile)
+  public static Parcheggio<Veicolo> caricaDaFileBinario(String nomeFile)
   {
     try(ObjectInputStream objInStrm = new ObjectInputStream(new FileInputStream(nomeFile)))
     {
-      return (Parcheggio) objInStrm.readObject();
+      return (Parcheggio<Veicolo>) objInStrm.readObject();
     }
     catch(IOException e)
     {
@@ -156,7 +156,7 @@ public class Utente implements Serializable
   }
 
   // prova a inserire un veicolo nella coda di attesa
-  public static void inserisciInCoda(Parcheggio p, Veicolo v)
+  public static void inserisciInCoda(Parcheggio<Veicolo> p, Veicolo v)
   {
     try 
     {
@@ -169,7 +169,7 @@ public class Utente implements Serializable
   }
 
   // esegue l’ingresso del primo veicolo in coda e lo parcheggia
-  public static void faiEntrareEParcheggia(Parcheggio p, int oraIngresso)
+  public static void faiEntrareEParcheggia(Parcheggio<Veicolo> p, int oraIngresso)
   {
     try
     {

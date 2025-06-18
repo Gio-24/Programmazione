@@ -28,7 +28,7 @@ public class Parcheggio <T extends Veicolo> implements Serializable
     this.veicoliParcheggiati = new Veicolo[a + m];
   }
 
-  public Parcheggio(Parcheggio p)
+  public Parcheggio(Parcheggio<T> p)
   {
     this.MAXAUTO = p.MAXAUTO;
     this.MAXMOTO = p.MAXMOTO;
@@ -52,7 +52,7 @@ public class Parcheggio <T extends Veicolo> implements Serializable
   {
     try(ObjectInputStream objInStrm = new ObjectInputStream(new FileInputStream(nomeFile)))
     {
-      Parcheggio p = new Parcheggio<>((Parcheggio) objInStrm.readObject());
+      Parcheggio<Veicolo> p = new Parcheggio<>((Parcheggio<Veicolo>) objInStrm.readObject());
       this.MAXAUTO = p.MAXAUTO;
       this.MAXMOTO = p.MAXMOTO;
       this.numauto = p.numauto;

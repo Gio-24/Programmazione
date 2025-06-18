@@ -9,10 +9,10 @@ import java.util.NoSuchElementException;
 
 public class Coda<T> implements Serializable
 {
-  class Nodo<T> implements Serializable
+  class Nodo implements Serializable
   {
     private T data; // elemento generico
-    private Nodo<T> next; // riferimento all'elemento successivo
+    private Nodo next; // riferimento all'elemento successivo
 
     public Nodo(T d)
     {
@@ -21,8 +21,8 @@ public class Coda<T> implements Serializable
     }
   }
 
-  private Nodo<T> head; // riferimento al primo elemento della lista
-  private Nodo<T> tail; // riferimento all'ultimo elemento della lista
+  private Nodo head; // riferimento al primo elemento della lista
+  private Nodo tail; // riferimento all'ultimo elemento della lista
   private int max = 5; // numero massimo di elementi ammessi nella lista
   private int size; // numero corrente di elementi nella lista
 
@@ -60,7 +60,7 @@ public class Coda<T> implements Serializable
       throw new IllegalStateException("Errore! La coda d'attesa è piena.");
     }
     // crea un nuovo nodo generico
-    Nodo<T> newNodo = new Nodo<>(val); 
+    Nodo newNodo = new Nodo(val); 
     if(isEmpty()) // controlla se la coda è vuota
     {
       head = newNodo; // push
