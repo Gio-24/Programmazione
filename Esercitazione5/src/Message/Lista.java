@@ -139,7 +139,7 @@ public class Lista
             Vocale tmp = (Vocale) current.data; // down cast (sicuro dopo il controllo)
             if(tmp.getDurata() == max)  // controlla se la durata del vocale è uguale a quella max
             {
-              vocMax.add(tmp.getMittente()); // aggiunge il riferimento al contatto nel container
+              vocMax.add(tmp); // aggiunge il riferimento al contatto nel container
             }
           }
           current = current.next; // passa al prossimo elemento
