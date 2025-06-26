@@ -1,0 +1,11 @@
+5
+persona.Persona
+Mario Rossi 35
+persona.Persona
+Anna Esposito 15
+impiegato.Impiegato
+Luca Bianchi 30 IBM 3
+impiegato.Impiegato
+John Smith 15 Harrods 10
+persona.Persona
+Salvatore Esposito 30

@@ -1,0 +1,5 @@
+4
+Mario Rossi 35
+luca Bianchi 30 IBM 3
+Anna Esposito 15
+John Smith 15 Harrods 10
