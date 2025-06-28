@@ -1,6 +1,8 @@
 package List.LinkedList;
 
-public class List 
+import java.util.Iterator;
+
+public class List implements Iterable<Integer>
 {
   class Node
   {
@@ -12,6 +14,46 @@ public class List
       this.data = n;
       this.next = null;
     }
+  }
+
+  @Override
+  public Iterator<Integer> iterator() 
+  {
+    return new Iterator<Integer>() 
+    {
+      Node current = head;
+      int count = 0;
+
+      // metodo che controlla se nell'iterator è presente un elemento successivo valido
+      @Override
+      public boolean hasNext() 
+      {
+        return count < size && current != null;
+      }
+
+      // metodo che ritorna un riferimento all'elemento successivo
+      @Override
+      public Integer next() 
+      {
+        if(!hasNext())
+        {
+          return null;
+        }
+        else
+        {
+          Integer tmp = current.data;
+          current = current.next;
+          count++;
+          return tmp;
+        }
+      }
+
+      @Override
+      public void remove() 
+      {
+        throw new UnsupportedOperationException("Errore! Operazione non supportata.");
+      }
+    };
   }
 
   private Node head;
